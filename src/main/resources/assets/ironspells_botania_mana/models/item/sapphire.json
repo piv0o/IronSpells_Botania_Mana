@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "ironspells_botania_mana:item/sapphire"
+	}
+}
