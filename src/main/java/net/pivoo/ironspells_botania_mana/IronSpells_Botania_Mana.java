@@ -61,6 +61,10 @@ public class IronSpells_Botania_Mana
         LOGGER.info("HELLO from server starting");
     }
 
+    public static void logInfo(String msg){
+        LOGGER.info(msg);
+    }
+
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents

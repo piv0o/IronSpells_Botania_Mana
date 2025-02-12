@@ -162,6 +162,8 @@ dependencies {
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    // clientAnnotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    // apiAnnotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-/
     // Botania + Dependancies
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-/
@@ -211,6 +213,7 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 }
 
+
 // This block of code expands all declared replace properties in the specified resource targets.
 // A missing property will result in an error. Properties are expanded using ${} Groovy notation.
 // When "copyIdeResources" is enabled, this will also run before the game launches in IDE environments.
@@ -240,10 +243,15 @@ tasks.named('jar', Jar).configure {
                 'Implementation-Title'    : project.name,
                 'Implementation-Version'  : project.jar.archiveVersion,
                 'Implementation-Vendor'   : mod_authors,
-                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                'MixinConfigs': "mixins.${mod_id}.json"
         ])
+        
     }
 
+    // from("src/main/resources") {
+    //     include "mixins.ironspells_botania_mana.json"
+    // }
     // This is the preferred method to reobfuscate your jar file
     finalizedBy 'reobfJar'
 }
@@ -269,4 +277,9 @@ publishing {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+mixin{
+      add sourceSets.main, 'mixins.ironspells_botania_mana.refmap.json'
+     config 'mixins.ironspells_botania_mana.json'
 }
