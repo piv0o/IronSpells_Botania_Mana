@@ -4,9 +4,8 @@
 	"refmap": "ironspells_botania_mana.refmap.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-	  "MagicDataMixin",
-	  "MagicDataAccessor",
-	  "AbstractSpellMixin"
+	  "AbstractSpellMixin",
+	  "ManaBarOverlayMixin"
 	],
 	"injectors": {
 	  "defaultRequire": 1
