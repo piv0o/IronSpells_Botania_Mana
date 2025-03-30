@@ -18,6 +18,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.pivoo.ironspells_botania_mana.config.CommonConfigs;
+import net.pivoo.ironspells_botania_mana.events.AttributeModification;
+
 @Mod(IronSpells_Botania_Mana.MODID)
 public class IronSpells_Botania_Mana
 {
@@ -34,6 +36,7 @@ public class IronSpells_Botania_Mana
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(AttributeModification.class);
 
         modEventBus.addListener(this::addCreative);
 
@@ -59,7 +62,7 @@ public class IronSpells_Botania_Mana
         // Do something when the server starts
         LOGGER.info("HELLO from server starting");
     }
-
+    
     public static void logInfo(String msg){
         LOGGER.info(msg);
     }

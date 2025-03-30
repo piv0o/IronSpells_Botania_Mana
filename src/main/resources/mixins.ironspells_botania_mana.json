@@ -5,7 +5,12 @@
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
 	  "AbstractSpellMixin",
-	  "ManaBarOverlayMixin"
+	  "ManaBarOverlayMixin",
+	  "ExtenderArmorItemMixin",
+	  "SimpleAttributeCurioMixin",
+	  "UpgradeOrbItemMixin",
+	  "UpgradeUtilsMixin",
+	  "SimpleAttributeSpellBookMixin"
 	],
 	"injectors": {
 	  "defaultRequire": 1
